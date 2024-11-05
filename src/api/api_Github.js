@@ -4,7 +4,7 @@ import axios from "axios";
 function GitHubRepos() {
   const [repos, setRepos] = useState([]);
 
-  const token = process.env.API_GITHUB;
+  const token = process.env.REACT_APP_API_GITHUB;
 
   useEffect(() => {
     const fetchRepos = async () => {

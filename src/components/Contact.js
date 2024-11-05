@@ -3,9 +3,9 @@ import emailjs from "@emailjs/browser";
 
 function Contact() {
   const form = useRef();
-  const id_EMAILJS = process.env.id_EMAILJS;
-  const idTemplate = process.env.template_id;
-  const publicKeyEMAIL = process.env.publicKey;
+  const id_EMAILJS = process.env.REACT_APP_id_EMAILJS;
+  const idTemplate = process.env.REACT_APP_template_id;
+  const publicKeyEMAIL = process.env.REACT_APP_publicKey;
 
   const sendEmail = (e) => {
     e.preventDefault();
