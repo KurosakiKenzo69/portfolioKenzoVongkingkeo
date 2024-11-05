@@ -1,33 +1,42 @@
-import React, { useRef } from 'react';
-import emailjs from '@emailjs/browser';
+import React, { useRef } from "react";
+import emailjs from "@emailjs/browser";
 
 function Contact() {
   const form = useRef();
+  const id_EMAILJS = process.env.id_EMAILJS;
+  const idTemplate = process.env.template_id;
+  const publicKeyEMAIL = process.env.publicKey;
 
   const sendEmail = (e) => {
     e.preventDefault();
 
     emailjs
-      .sendForm('kenzovongkingkeo', 'template_pm352it', form.current, {
-        publicKey: 'lHxFznTMsPszEKU5U',
+      .sendForm(id_EMAILJS, idTemplate, form.current, {
+        publicKey: publicKeyEMAIL,
       })
       .then(
         () => {
-          console.log('SUCCESS!');
+          console.log("SUCCESS!");
           form.current.reset(); // Réinitialiser le formulaire après l'envoi
         },
         (error) => {
-          console.log('FAILED...', error.text);
-        },
+          console.log("FAILED...", error.text);
+        }
       );
   };
 
   return (
-    <form ref={form} onSubmit={sendEmail} className="bg-gray-800 p-6 rounded-lg shadow-md max-w-md mx-auto">
-      <h2 className="text-2xl text-center text-blue-400 mb-4">Contactez-moi</h2>
+    <form
+      ref={form}
+      onSubmit={sendEmail}
+      className="bg-gray-800 p-6 rounded-lg shadow-md max-w-md mx-auto mb-28 my-20"
+    >
+      <h2 className="text-2xl text-center text-white mb-4">Contactez-moi</h2>
 
       <div className="mb-4">
-        <label className="block text-gray-200 mb-1" htmlFor="user_name">Nom</label>
+        <label className="block text-gray-200 mb-1" htmlFor="user_name">
+          Nom
+        </label>
         <input
           type="text"
           name="user_name"
@@ -38,7 +47,9 @@ function Contact() {
       </div>
 
       <div className="mb-4">
-        <label className="block text-gray-200 mb-1" htmlFor="user_email">Email</label>
+        <label className="block text-gray-200 mb-1" htmlFor="user_email">
+          Email
+        </label>
         <input
           type="email"
           name="user_email"
@@ -49,7 +60,9 @@ function Contact() {
       </div>
 
       <div className="mb-4">
-        <label className="block text-gray-200 mb-1" htmlFor="message">Message</label>
+        <label className="block text-gray-200 mb-1" htmlFor="message">
+          Message
+        </label>
         <textarea
           name="message"
           id="message"
@@ -59,7 +72,10 @@ function Contact() {
         />
       </div>
 
-      <button type="submit" className="w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600 transition duration-200">
+      <button
+        type="submit"
+        className="w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600 transition duration-200"
+      >
         Envoyer
       </button>
     </form>

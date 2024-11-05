@@ -1,32 +1,55 @@
-import React from "react";
-import "../App.css";
-import Title from "../components/Title";
-import Cs from "../img/Logo_C_sharp.svg.png";
-import php from "../img/PHP-logo.svg.png";
-import reactImg from "../img/React-icon.svg.png";
-import js from "../img/javascript-3.png";
+import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faServer, faCode, faTools } from '@fortawesome/free-solid-svg-icons';
 
-export default function Competences() {
-    return (
-        <div className="bg-black py-10">
-            <Title>Mes compétences</Title>
-            <div className="container mx-auto px-4">
-                <div className="grid grid-cols-3 gap-6 mt-6">
-                    <SkillCard image={Cs} title="C#" />
-                    <SkillCard image={php} title="PHP" />
-                    <SkillCard image={reactImg} title="React" />
-                    <SkillCard image={js} title="Javascript" />
-                </div>
-            </div>
+function Competences() {
+  return (
+    <div id="competences" className="text-white py-12 px-4"> {/* Arrière-plan gris foncé */}
+      <h2 className="text-3xl font-semibold text-center mb-10">Mes compétences</h2>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+        <div className="bg-gray-800 p-6 rounded-lg transform hover:scale-105 transition duration-300 hover:bg-gray-700 text-center">
+          <FontAwesomeIcon icon={faServer} className="text-blue-400 text-3xl mb-4" />
+          <h3 className="text-xl font-semibold mb-4">Backend</h3>
+          <p>Langages et outils :</p>
+          <ul className="mt-2 space-y-1">
+            <li>Node.js</li>
+            <li>Express.js</li>
+            <li>PHP</li>
+            <li>MySQL</li>
+            <li>SQLite</li>
+            <li>PostgreSQL</li>
+            <li>Python</li>
+          </ul>
         </div>
-    );
+
+        <div className="bg-gray-800 p-6 rounded-lg transform hover:scale-105 transition duration-300 hover:bg-gray-700 text-center">
+          <FontAwesomeIcon icon={faCode} className="text-green-400 text-3xl mb-4" />
+          <h3 className="text-xl font-semibold mb-4">Frontend</h3>
+          <p>Langages et outils :</p>
+          <ul className="mt-2 space-y-1">
+            <li>React.js</li>
+            <li>Tailwind CSS</li>
+            <li>BulmaCSS</li>
+            <li>JavaScript</li>
+            <li>HTML & CSS</li>
+          </ul>
+        </div>
+
+        <div className="bg-gray-800 p-6 rounded-lg transform hover:scale-105 transition duration-300 hover:bg-gray-700 text-center">
+          <FontAwesomeIcon icon={faTools} className="text-yellow-400 text-3xl mb-4" />
+          <h3 className="text-xl font-semibold mb-4">Autres</h3>
+          <p>Outils divers :</p>
+          <ul className="mt-2 space-y-1">
+            <li>Git & GitHub</li>
+            <li>Postman</li>
+            <li>Linux</li>
+            <li>WordPress</li>
+            <li>Docker</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  );
 }
 
-function SkillCard({ image, title }) {
-    return (
-        <div className="text-center bg-black rounded-lg border border-green-700 shadow-md p-4 transform transition-transform hover:scale-105 hover:shadow-lg hover:bg-green-700">
-            <img className="w-16 mx-auto" src={image} alt={title} />
-            <p className="text-lg font-semibold text-white">{title}</p>
-        </div>
-    );
-}
+export default Competences;

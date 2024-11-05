@@ -1,6 +1,6 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHome, faCogs, faCode, faEnvelope, faBars, faCircleInfo } from "@fortawesome/free-solid-svg-icons";
+import { faHome, faCogs, faCode, faEnvelope, faBars, faCircleInfo, faBriefcase } from "@fortawesome/free-solid-svg-icons";
 import "../App.css";
 import logo from "../img/logo.png"
 
@@ -16,23 +16,27 @@ export default function Navbar() {
                     <ul className="menu flex items-center space-x-8">
                         <li className="text-white hover:bg-white hover:text-black rounded-lg p-2 transition-all duration-300">
                             <FontAwesomeIcon icon={faHome} />
-                            <a href="#">Home</a>
+                            <a href="#">Accueil</a>
                         </li>
                         <li className="text-white hover:bg-white hover:text-black rounded-lg p-2 transition-all duration-300">
                             <FontAwesomeIcon icon={faCogs} />
-                            <a href="#">Skills</a>
+                            <a href="#competences">Compétences</a>
                         </li>
-                        <li className="text-white hover:bg-white hover:text-black rounded-lg p-2 transition-all duration-300">
+                        {/* <li className="text-white hover:bg-white hover:text-black rounded-lg p-2 transition-all duration-300">
                             <FontAwesomeIcon icon={faCircleInfo} />
-                            <a href="#">About</a>
+                            <a href="#about">A propos</a>
+                        </li> */}
+                        <li className="text-white hover:bg-white hover:text-black rounded-lg p-2 transition-all duration-300">
+                            <FontAwesomeIcon icon={faBriefcase} />
+                            <a href="#experience">Expériences</a>
                         </li>
                         <li className="text-white hover:bg-white hover:text-black rounded-lg p-2 transition-all duration-300">
                             <FontAwesomeIcon icon={faCode} />
-                            <a href="#">Projects</a>
+                            <a href="#projets">Projets</a>
                         </li>
                         <li className="text-white hover:bg-white hover:text-black rounded-lg p-2 transition-all duration-300">
                             <FontAwesomeIcon icon={faEnvelope} />
-                            <a href="#">Contact</a>
+                            <a href="#contact">Contact</a>
                         </li>
                     </ul>
                 </div>

@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-const dotenv = require("dotenv");
 
 function GitHubRepos() {
   const [repos, setRepos] = useState([]);
+
+  const token = process.env.API_GITHUB;
 
   useEffect(() => {
     const fetchRepos = async () => {
@@ -12,7 +13,7 @@ function GitHubRepos() {
           "https://api.github.com/users/KurosakiKenzo69/repos",
           {
             headers: {
-              Authorization: `token ${token}`,
+              Authorization: `token` + token,
             },
           }
         );
@@ -27,9 +28,10 @@ function GitHubRepos() {
   }, []);
 
   return (
+    <div className="bg-gray-900 py-24">
     <div className="max-w-4xl mx-auto p-6 text-gray-200">
       <h2 className="text-3xl font-semibold text-center mb-8 text-gray-100">
-        My projects
+        Mes projets
       </h2>
       {repos.length === 0 ? (
         <p className="text-center text-gray-400">Loading...</p>
@@ -55,6 +57,7 @@ function GitHubRepos() {
           ))}
         </ul>
       )}
+    </div>
     </div>
   );
   
